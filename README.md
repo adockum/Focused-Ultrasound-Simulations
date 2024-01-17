@@ -18,8 +18,8 @@ Ferroelectr. Freq. Control, vol. 36, no. 5, pp. 540-8, Jan. 1989.
 - makeIGTNiftiTransducer.m : used to create a NIFTI file of your transducer, requires the coordinate locations (in mm) of your transducer. For our IGT transducer, this is the file 'IGTelemLocs.mat' 
 
 ## Requirements 
-- MATLAB [Getting Started with MATLAB] (https://www.mathworks.com/help/matlab/getting-started-with-matlab.html)
-- [k-wave] (http://www.k-wave.org/)
-- [3D Slicer]  (https://download.slicer.org/) 
+- MATLAB [Getting Started with MATLAB](https://www.mathworks.com/help/matlab/getting-started-with-matlab.html)
+- [k-wave](http://www.k-wave.org/)
+- [3D Slicer](https://download.slicer.org/) 
 
 
