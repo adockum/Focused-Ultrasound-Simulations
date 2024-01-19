@@ -19,7 +19,7 @@ InputAmplitudeCalibration.mat: calibration data for a limited set of steering co
 - [-6.3 -2.5 0]
 - [-6.3 -1 0] 
 
-If you want to run a transcranial simulation with accurate amplitude scaling, you will need to run 2 free field simulations. One with amplitude = 1000, one with amplitude = 100,000. After running these simulations, run write_InputAmplitudeCalibration.m to generate your data file.
+If you want to run a transcranial simulation at a new steering coordinate with accurate amplitude scaling, you will need to run 2 free field simulations. One with amplitude = 1000, one with amplitude = 100,000. After running these simulations, run write_InputAmplitudeCalibration.m to generate your data file.
 
 
 --- Description --- 
