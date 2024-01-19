@@ -1,0 +1,29 @@
+Function: 
+- getInputAmplitude.m : returns the driving amplitude at element surface at the steering coordinate based on the estimated free-field pressure. Calls the data "InputAmplitudeCalibration.mat" 
+
+	Amp = getInputAmplitude(p, varargin)
+	p = desired free-field pressure 
+	varargin = 'steer', [X Y Z]
+		 = 'max' or 'rms' 
+
+
+-write_InputAmplitudeCalibration.m : writes InputAmplitudeCalibration.mat called by getInputAmplitude.m
+
+Data:
+InputAmplitudeCalibration.mat: calibration data for a limited set of steering coordinates. Contains the max rms-pressure, the max of the PNP-pressure, the steering coordinates, and amplitudes used during free field simulations. 
+  
+20240119 - these steering coordinates include: 
+- [0 0 -5] 
+- [-2 2 0] 
+- [-3.4 3.1 -7] 
+- [-6.3 -2.5 0]
+- [-6.3 -1 0] 
+
+If you want to run a transcranial simulation with accurate amplitude scaling, you will need to run 2 free field simulations. One with amplitude = 1000, one with amplitude = 100,000. After running these simulations, run write_InputAmplitudeCalibration.m to generate your data file.
+
+
+--- Description --- 
+
+For ultrasound simulations, k-Wave accepts the amplitiude at transducer element surface as the input amplitude for its pressure waves. The way we think about our ultrasound waves is by the free-field pressure and we don't know the amplitude that's applied at the element surface. For example, we might tell our amplifier to create a 1.4MPa wave and we assume 39% transmission through the skull, and we will have an in-vivo pressure of about 550kPa. 
+
+To calculate the amplitude at element surface, we assume linearity between driving amplitude and output free-field pressure. This is why we run two free-field simulations for each steering coordinate, one at a low amplitude and the other at a high amplitude. Then we linearly fit these simulations between the driving amplitudes and the output free-field pressures. When running 'getInputAmplitude.m' this will call this linear fit and return the driving amplitude for the desired free-field pressure. 
